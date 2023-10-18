@@ -1,0 +1,52 @@
+.filter__item {
+  flex-shrink: 0;
+}
+.filter__item:hover {
+}
+.filter__item input {
+  position: absolute;
+  appearance: none;
+}
+.filter__wrapper {
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  width: 100%;
+}
+.filter__list {
+  display: flex;
+  column-gap: 25px;
+  /* margin-bottom: 50px; */
+  justify-content: center;
+
+  /*  */
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: -15px;
+  overflow-x: scroll;
+}
+
+.filter__item input ~ span {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid lch(39.625% 6.711 70deg);
+  border-color: lch(68.002% 55.309 70deg);
+
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.filter__item input:checked ~ span,
+.filter__item:hover span {
+  background-color: lch(68.002% 55.309 70deg);
+  color: #fff;
+}
+@media (max-width: 1060px) {
+  .filter__list {
+    justify-content: flex-start;
+  }
+}

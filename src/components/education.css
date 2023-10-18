@@ -1,0 +1,54 @@
+.education {
+  padding: 80px 15px;
+  display: flex;
+  min-height: 100vh;
+  background-color: rgb(239, 225, 189);
+}
+.education__container {
+  flex-grow: 1;
+  align-self: center;
+  height: 100%;
+}
+.education__title {
+  margin: -20px 0 40px;
+  font-size: 36px;
+  text-align: center;
+}
+.education__list {
+  padding-bottom: 0;
+}
+
+.vertical-timeline-element-date {
+  color: #000 !important;
+  animation-duration: 1.3s !important;
+}
+.education__item span.vertical-timeline-element-icon {
+  background-image: url("../icons/education-icon.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+
+  background-color: #e9d5a1 !important;
+}
+.education__item:nth-child(2) span.vertical-timeline-element-icon {
+  background-image: url("../icons/web-icon3.png") !important;
+}
+.education__item:nth-child(3) span.vertical-timeline-element-icon {
+  background-image: url("../icons//watch-icon.png") !important;
+  background-size: 44px !important;
+}
+.vertical-timeline-element-content {
+  padding-left: 50px !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  border-radius: 10px;
+  animation-duration: 1.6s !important;
+}
+.education__item:nth-child(3) .vertical-timeline-element-content {
+  display: none;
+}
+.vertical-timeline-element-content-arrow {
+  border-right: 7px solid #fff !important;
+}
+.education__item-logo {
+  margin-bottom: 15px;
+}
