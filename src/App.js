@@ -16,6 +16,9 @@ function App() {
         fetch(url, {
           method: "POST",
           mode: "no-cors",
+          headers: {
+            "content-type": "application/json",
+          },
           body: { ...res },
         });
       });
