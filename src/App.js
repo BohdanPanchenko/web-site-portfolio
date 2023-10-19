@@ -19,7 +19,7 @@ function App() {
           headers: {
             "content-type": "application/json",
           },
-          body: { ...res },
+          body: JSON.stringify(res),
         });
       });
   }
