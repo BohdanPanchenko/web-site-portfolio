@@ -9,8 +9,16 @@ import React from "react";
 
 function App() {
   function checkVisiters() {
-    const url = "https://test-server-eosin-rho.vercel.app";
-    fetch(url, { method: "GET", mode: "no-cors" });
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((res) => {
+        const url = "https://test-server-eosin-rho.vercel.app";
+        fetch(url, {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(res),
+        });
+      });
   }
   React.useEffect(checkVisiters, []);
   return (
