@@ -97,7 +97,7 @@ const useProjectsStore = create((set, get) => ({
         "A program designed to convert the value of one currency into another based on the market rate for that currency.",
       tags: ["All", "angular", "api"],
       image: "exchange-rate-image.png",
-      link: "https://lighthearted-begonia-99f188.netlify.app",
+      link: "https://angular-currency-calculator-gamma.vercel.app",
     },
   ],
   projectsToShow: [],
