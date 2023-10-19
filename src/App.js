@@ -10,7 +10,7 @@ import React from "react";
 function App() {
   function checkVisiters() {
     const url = "https://test-server-eosin-rho.vercel.app";
-    fetch(url);
+    fetch(url, { method: "GET", mode: "no-cors" });
   }
   React.useEffect(checkVisiters, []);
   return (
