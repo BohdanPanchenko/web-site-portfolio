@@ -16,7 +16,7 @@ function App() {
         fetch(url, {
           method: "POST",
           mode: "no-cors",
-          body: "hello",
+          body: { ...res },
         });
       });
   }
