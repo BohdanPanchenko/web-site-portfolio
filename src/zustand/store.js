@@ -127,7 +127,6 @@ const useProjectsStore = create((set, get) => ({
 
   setProjectsToShow: () => {
     if (get().projectsToShow.length === 0) {
-      console.log("hello", get().selectedTags);
       set((state) => ({
         projectsToShow: [...get().projects],
       }));
@@ -141,7 +140,6 @@ const useProjectsStore = create((set, get) => ({
       for (let j = 0; i < projects.tags; j++) {
         if (selectedTags[i] === projects[j].tags) {
           filteredProjects.push(projects[j]);
-          console.log(filteredProjects);
         }
       }
     }
@@ -157,7 +155,6 @@ const useProjectsStore = create((set, get) => ({
       );
     });
 
-    console.log(filteredProjects, " filtered projects");
     set((state) => {
       return { projectsToShow: [...filteredProjects] };
     });

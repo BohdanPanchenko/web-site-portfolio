@@ -13,7 +13,6 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         const url = "https://test-server-eosin-rho.vercel.app";
-        console.log(res);
         fetch(url, {
           method: "POST",
           headers: {
