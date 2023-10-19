@@ -16,7 +16,6 @@ function App() {
         console.log(res);
         fetch(url, {
           method: "POST",
-          mode: "no-cors",
           headers: {
             "content-type": "application/json",
           },
