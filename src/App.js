@@ -16,7 +16,7 @@ function App() {
         fetch(url, {
           method: "POST",
           mode: "no-cors",
-          body: JSON.stringify(res),
+          body: JSON.stringify("hello"),
         });
       });
   }
