@@ -1,23 +1,32 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import "./header.css";
+import useProjectsStore from "../zustand/store";
 const Header = () => {
   const menuItems = ["home", "about", "projects", "skills", "education"];
-  const [menuItemActive, setMenuItemActive] = React.useState(0);
+
+  const headerElement = React.useRef(null);
+  const activeNavLink = useProjectsStore((state) => state.activeNavLink);
+  const setActiveNavLink = useProjectsStore((state) => state.setActiveNavLink);
+  const scrollPositionY = useProjectsStore((state) => state.scrollPositionY);
+
   const [burgerActive, setBurgerActive] = React.useState(false);
-  function onMenuClickHandler(idx) {
-    setMenuItemActive((prev) => idx);
-  }
+  // function onMenuClickHandler(link) {
+  //   setActiveNavLink(link);
+  // }
   function onBurgerClickHandler() {
     setBurgerActive((prev) => !prev);
   }
+  React.useEffect(() => {
+    setActiveNavLink(headerElement, "home");
+  }, [scrollPositionY]);
   React.useEffect(() => {
     if (burgerActive) document.body.classList.add("locked");
     else document.body.classList.remove("locked");
   }, [burgerActive]);
   return (
     <>
-      <header className="header" id="home">
+      <header ref={headerElement} className="header" id="home">
         <div className="header__container container">
           <div
             className={
@@ -45,12 +54,12 @@ const Header = () => {
                   <li
                     key={idx}
                     className={
-                      menuItemActive === idx
+                      activeNavLink === el
                         ? "menu__item  menu__item_active"
                         : "menu__item"
                     }
                     onClick={() => {
-                      onMenuClickHandler(idx);
+                      // onMenuClickHandler(el);
                     }}
                   >
                     <a

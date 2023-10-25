@@ -1,8 +1,17 @@
+import React from "react";
+import useProjectsStore from "../zustand/store";
 import { Icon } from "@iconify/react";
 import "./skills.css";
 const Skills = () => {
+  const skillsElement = React.useRef(null);
+  const setActiveNavLink = useProjectsStore((state) => state.setActiveNavLink);
+  const scrollPositionY = useProjectsStore((state) => state.scrollPositionY);
+
+  React.useEffect(() => {
+    setActiveNavLink(skillsElement, "skills");
+  }, [scrollPositionY]);
   return (
-    <section className="skills" id="skills">
+    <section ref={skillsElement} className="skills" id="skills">
       <h3 className="skills__title">Skills</h3>
       <ul className="skills__list">
         <li className="skills__item">

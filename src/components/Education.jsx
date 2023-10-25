@@ -1,3 +1,5 @@
+import React from "react";
+import useProjectsStore from "../zustand/store";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -7,9 +9,15 @@ import nixLogo from "../icons/logo-nix.svg";
 import universityLogo from "../icons/university-logo.jpg";
 import "./education.css";
 const Education = () => {
-  const tags = [];
+  const educationElement = React.useRef(null);
+  const setActiveNavLink = useProjectsStore((state) => state.setActiveNavLink);
+  const scrollPositionY = useProjectsStore((state) => state.scrollPositionY);
+
+  React.useEffect(() => {
+    setActiveNavLink(educationElement, "education");
+  }, [scrollPositionY]);
   return (
-    <section className="education" id="education">
+    <section ref={educationElement} className="education" id="education">
       <div className="education__container container">
         <h3 className="education__title">Education</h3>
         <VerticalTimeline className="education__list">

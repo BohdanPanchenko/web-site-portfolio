@@ -102,6 +102,22 @@ const useProjectsStore = create((set, get) => ({
   ],
   projectsToShow: [],
   selectedTags: ["All"],
+  activeNavLink: "home",
+  scrollPositionY: 0,
+  setPositionY: (value) => {
+    set((state) => ({
+      scrollPositionY: value,
+    }));
+  },
+  setActiveNavLink: (ref, linkValue) => {
+    if (get().scrollPositionY < ref.current.offsetTop)
+      return set((state) => ({ ...state }));
+    // if (get().scrollPositionY >= ref.current.offsetTop);
+    else
+      set((state) => {
+        return { activeNavLink: linkValue };
+      });
+  },
   addTag: (value) =>
     set((state) => {
       if (value === "All") {

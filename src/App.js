@@ -6,8 +6,12 @@ import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import React from "react";
+import useProjectsStore from "./zustand/store";
 
 function App() {
+  const [activeNavLink, setActiveNavLink] = React.useState("home");
+  const setScrollPositionY = useProjectsStore((state) => state.setPositionY);
+  const [ticking, setTicking] = React.useState(false);
   function checkVisiters() {
     fetch("https://ipapi.co/json/")
       .then((res) => res.json())
@@ -22,7 +26,21 @@ function App() {
         });
       });
   }
-  React.useEffect(checkVisiters, []);
+  function onScrollHandler() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        setScrollPositionY(window.scrollY);
+        setTicking((prev) => false);
+      });
+
+      setTicking((prev) => true);
+    }
+  }
+  React.useEffect(() => {
+    checkVisiters();
+    document.addEventListener("scroll", onScrollHandler);
+  }, []);
+
   return (
     <div className="App">
       <Header />

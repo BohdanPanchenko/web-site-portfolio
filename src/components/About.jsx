@@ -1,8 +1,18 @@
+import React from "react";
 import "./about.css";
+import useProjectsStore from "../zustand/store";
 const About = () => {
+  const aboutElement = React.useRef(null);
+  const setActiveNavLink = useProjectsStore((state) => state.setActiveNavLink);
+  const scrollPositionY = useProjectsStore((state) => state.scrollPositionY);
+
+  React.useEffect(() => {
+    if (aboutElement) setActiveNavLink(aboutElement, "about");
+  }, [scrollPositionY]);
+
   return (
     <>
-      <section className="about-me" id="about">
+      <section ref={aboutElement} className="about-me" id="about">
         <div className="about-me__container container">
           <h3 className="about-me__title">ABOUT ME</h3>
           <div className="about-me__content">

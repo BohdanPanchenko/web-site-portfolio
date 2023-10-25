@@ -4,23 +4,22 @@ import useProjectsStore from "../zustand/store";
 import React from "react";
 
 const Projects = () => {
-  // const projects = useProjectsStore((state) => state.projects);
+  const projectsElement = React.useRef(null);
+  const setActiveNavLink = useProjectsStore((state) => state.setActiveNavLink);
+  const scrollPositionY = useProjectsStore((state) => state.scrollPositionY);
+
   const selectedTags = useProjectsStore((state) => state.selectedTags);
-  // const [projectsToShow, setProjectsToShow] = React.useState(
-  //   useProjectsStore((state) => [...state.projectsToShow])
-  // );
   const projectsToShow = useProjectsStore((state) => state.projectsToShow);
   const applyFilter = useProjectsStore((state) => state.applyFilter);
-  // const setProjectsToShow = useProjectsStore(
-  //   (state) => state.setProjectsToShow
-  // );
 
-  // React.useEffect(setProjectsToShow, []);
   React.useEffect(() => {
     applyFilter();
   }, [selectedTags]);
+  React.useEffect(() => {
+    setActiveNavLink(projectsElement, "projects");
+  }, [scrollPositionY]);
   return (
-    <section className="projects" id="projects">
+    <section ref={projectsElement} className="projects" id="projects">
       <div className="projects__container container">
         <h3 className="projects__title">Projects</h3>
         <Filter />
