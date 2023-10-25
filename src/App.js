@@ -9,6 +9,7 @@ import React from "react";
 import useProjectsStore from "./zustand/store";
 
 function App() {
+  const intervalId = React.useRef();
   const [activeNavLink, setActiveNavLink] = React.useState("home");
   const setScrollPositionY = useProjectsStore((state) => state.setPositionY);
   const [ticking, setTicking] = React.useState(false);
@@ -36,9 +37,21 @@ function App() {
       setTicking((prev) => true);
     }
   }
+  function checkScrollPosition() {
+    intervalId.current = setInterval(() => {
+      setScrollPositionY(window.scrollY);
+    }, 200);
+  }
   React.useEffect(() => {
     checkVisiters();
-    document.addEventListener("scroll", onScrollHandler);
+    checkScrollPosition();
+    console.log("Component did mount");
+    // document.addEventListener("scroll", onScrollHandler);
+
+    return () => {
+      console.log("Component will unmount");
+      clearInterval(intervalId.current);
+    };
   }, []);
 
   return (
