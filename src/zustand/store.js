@@ -17,7 +17,7 @@ const useProjectsStore = create((set, get) => ({
       tags: ["All", "vanilla js", "game"],
 
       image: "millionaire-image.png",
-      link: "https://bohdanpanchenko.github.io/PROJECT-2/Millionaire/index.html",
+      link: "https://bohdanpanchenko.github.io/Who-wants-to-be-a-millionaire-game/Millionaire/index.html",
     },
     {
       name: "Puzzle game",
