@@ -2,14 +2,14 @@ import { create } from "zustand";
 
 const useProjectsStore = create((set, get) => ({
   projects: [
-    {
-      name: "Racoon memory game",
-      description:
-        "Test your memory and concentration as you flip cards featuring cute raccoon illustrations. Your task is to find the matching pairs of raccoons hidden beneath the cards. ",
-      tags: ["All", "vanilla js", "game"],
-      image: "racoon.png",
-      link: "https://bohdanpanchenko.github.io/racoon-memory-game/",
-    },
+    // {
+    //   name: "Racoon memory game",
+    //   description:
+    //     "Test your memory and concentration as you flip cards featuring cute raccoon illustrations. Your task is to find the matching pairs of raccoons hidden beneath the cards. ",
+    //   tags: ["All", "vanilla js", "game"],
+    //   image: "racoon.png",
+    //   link: "https://bohdanpanchenko.github.io/racoon-memory-game/",
+    // },
     {
       name: "Millionaire game",
       description:
@@ -65,7 +65,7 @@ const useProjectsStore = create((set, get) => ({
       tags: ["All", "HTML/CSS", "responsive"],
       image: "watch-image.png",
       link: "https://bohdanpanchenko.github.io/LUXURY-WATCHES/index.html",
-    }, //Your Task Management with React and Redux. Organize, filter, and sort your tasks, edit entries, and update task statuses.
+    },
     {
       name: "ToDo list app",
       description:
